@@ -6,6 +6,7 @@ import com.example.testit.model.Task;
 import com.example.testit.model.User;
 import com.example.testit.repository.TaskRepository;
 import com.example.testit.repository.UserRepository;
+import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -57,6 +58,7 @@ public class TaskService {
         taskRepository.deleteById(id);
     }
 
+    @Transactional
     public Task startTask(Long taskId, Long userId) {
         Task task = taskRepository.findById(taskId)
                 .orElseThrow(() -> new IllegalArgumentException("Task not found"));
