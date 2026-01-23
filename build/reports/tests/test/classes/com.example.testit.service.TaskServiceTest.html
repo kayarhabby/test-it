@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+<title>Test results - TaskServiceTest</title>
+<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+<script src="../js/report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<h1>TaskServiceTest</h1>
+<div class="breadcrumbs">
+<a href="../index.html">all</a> &gt; 
+<a href="../packages/com.example.testit.service.html">com.example.testit.service</a> &gt; TaskServiceTest</div>
+<div id="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox" id="tests">
+<div class="counter">1</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="failures">
+<div class="counter">0</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="ignored">
+<div class="counter">0</div>
+<p>ignored</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="duration">
+<div class="counter">2.561s</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox success" id="successRate">
+<div class="percent">100%</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="tab-container">
+<ul class="tabLinks">
+<li>
+<a href="#">Tests</a>
+</li>
+<li>
+<a href="#">Standard output</a>
+</li>
+</ul>
+<div class="tab">
+<h2>Tests</h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Duration</th>
+<th>Result</th>
+</tr>
+</thead>
+<tr>
+<td class="success">itshouldReturnAllTaskInTheDatabase()</td>
+<td class="success">2.561s</td>
+<td class="success">passed</td>
+</tr>
+</table>
+</div>
+<div class="tab">
+<h2>Standard output</h2>
+<span class="code">
+<pre>16:54:35.727 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.example.testit.service.TaskServiceTest]: TaskServiceTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+16:54:35.838 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.example.testit.TestItApplication for test class com.example.testit.service.TaskServiceTest
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.2.0)
+
+2026-01-23T16:54:36.185+01:00  INFO 5232 --- [    Test worker] c.e.testit.service.TaskServiceTest       : Starting TaskServiceTest using Java 17.0.17 with PID 5232 (started by pasci in C:\Users\pasci\IdeaProjects\test-it)
+2026-01-23T16:54:36.185+01:00  INFO 5232 --- [    Test worker] c.e.testit.service.TaskServiceTest       : No active profile set, falling back to 1 default profile: &quot;default&quot;
+2026-01-23T16:54:36.927+01:00  INFO 5232 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-01-23T16:54:36.977+01:00  INFO 5232 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 49 ms. Found 2 JPA repository interfaces.
+2026-01-23T16:54:37.456+01:00  INFO 5232 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-01-23T16:54:37.646+01:00  INFO 5232 --- [    Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:testdb user=SA
+2026-01-23T16:54:37.646+01:00  INFO 5232 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-01-23T16:54:37.710+01:00  INFO 5232 --- [    Test worker] liquibase.database                       : Set default schema name to PUBLIC
+2026-01-23T16:54:38.279+01:00  INFO 5232 --- [    Test worker] liquibase.changelog                      : Creating database history table with name: PUBLIC.DATABASECHANGELOG
+2026-01-23T16:54:38.376+01:00  INFO 5232 --- [    Test worker] liquibase.changelog                      : Reading from PUBLIC.DATABASECHANGELOG
+2026-01-23T16:54:38.423+01:00  INFO 5232 --- [    Test worker] liquibase.lockservice                    : Successfully acquired change log lock
+2026-01-23T16:54:38.423+01:00  INFO 5232 --- [    Test worker] liquibase.command                        : Using deploymentId: 9183678423
+2026-01-23T16:54:38.423+01:00  INFO 5232 --- [    Test worker] liquibase.changelog                      : Reading from PUBLIC.DATABASECHANGELOG
+Running Changeset: db/changelog/001-create-users-table.xml::001::testit
+2026-01-23T16:54:38.465+01:00  INFO 5232 --- [    Test worker] liquibase.changelog                      : Table user created
+2026-01-23T16:54:38.465+01:00  INFO 5232 --- [    Test worker] liquibase.changelog                      : ChangeSet db/changelog/001-create-users-table.xml::001::testit ran successfully in 10ms
+Running Changeset: db/changelog/002-create-task-table.xml::002::testit
+2026-01-23T16:54:38.471+01:00  INFO 5232 --- [    Test worker] liquibase.changelog                      : Table task created
+2026-01-23T16:54:38.471+01:00  INFO 5232 --- [    Test worker] liquibase.changelog                      : ChangeSet db/changelog/002-create-task-table.xml::002::testit ran successfully in 0ms
+2026-01-23T16:54:38.471+01:00  INFO 5232 --- [    Test worker] liquibase.util                           : UPDATE SUMMARY
+2026-01-23T16:54:38.471+01:00  INFO 5232 --- [    Test worker] liquibase.util                           : Run:                          2
+2026-01-23T16:54:38.471+01:00  INFO 5232 --- [    Test worker] liquibase.util                           : Previously run:               0
+2026-01-23T16:54:38.486+01:00  INFO 5232 --- [    Test worker] liquibase.util                           : Filtered out:                 0
+2026-01-23T16:54:38.486+01:00  INFO 5232 --- [    Test worker] liquibase.util                           : -------------------------------
+2026-01-23T16:54:38.486+01:00  INFO 5232 --- [    Test worker] liquibase.util                           : Total change sets:            2
+2026-01-23T16:54:38.486+01:00  INFO 5232 --- [    Test worker] liquibase.util                           : Update summary generated
+2026-01-23T16:54:38.489+01:00  INFO 5232 --- [    Test worker] liquibase.command                        : Update command completed successfully.
+Liquibase: Update has been successful. Rows affected: 2
+2026-01-23T16:54:38.491+01:00  INFO 5232 --- [    Test worker] liquibase.lockservice                    : Successfully released change log lock
+2026-01-23T16:54:38.491+01:00  INFO 5232 --- [    Test worker] liquibase.command                        : Command execution complete
+2026-01-23T16:54:38.569+01:00  INFO 5232 --- [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-01-23T16:54:38.664+01:00  INFO 5232 --- [    Test worker] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.3.1.Final
+2026-01-23T16:54:38.722+01:00  INFO 5232 --- [    Test worker] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-01-23T16:54:39.103+01:00  INFO 5232 --- [    Test worker] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-01-23T16:54:39.150+01:00  WARN 5232 --- [    Test worker] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-01-23T16:54:40.005+01:00  INFO 5232 --- [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-01-23T16:54:40.042+01:00  INFO 5232 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-01-23T16:54:40.401+01:00  INFO 5232 --- [    Test worker] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-01-23T16:54:41.156+01:00  WARN 5232 --- [    Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-01-23T16:54:41.699+01:00  INFO 5232 --- [    Test worker] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:testdb'
+2026-01-23T16:54:41.774+01:00  INFO 5232 --- [    Test worker] c.e.testit.service.TaskServiceTest       : Started TaskServiceTest in 5.782 seconds (process running for 6.989)
+</pre>
+</span>
+</div>
+</div>
+<div id="footer">
+<p>
+<div>
+<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
+<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+</label>
+</div>Generated by 
+<a href="https://www.gradle.org">Gradle 8.14</a> at 23 janv. 2026, 16:54:44</p>
+</div>
+</div>
+</body>
+</html>

@@ -90,10 +90,10 @@ public class TaskService {
         Task saved = taskRepository.save(task);
         mailService.sendMail(task.getAssignedUser(), "Tâche terminée", "La tâche '" + task.getTitle() + "' a été terminée.");
         // Envoyer aussi au manager si présent
-        if (task.getAssignedUser().getManager() != null) {
-            mailService.sendMail(task.getAssignedUser().getManager(), "Tâche de votre subordonné terminée",
-                    "La tâche '" + task.getTitle() + "' assignée à " + task.getAssignedUser().getUsername() + " a été terminée.");
-        }
+//        if (task.getAssignedUser().getManager() != null) {
+//            mailService.sendMail(task.getAssignedUser().getManager(), "Tâche de votre subordonné terminée",
+//                    "La tâche '" + task.getTitle() + "' assignée à " + task.getAssignedUser().getUsername() + " a été terminée.");
+//        }
         return saved;
     }
 }

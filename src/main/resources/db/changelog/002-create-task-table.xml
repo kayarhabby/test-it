@@ -13,7 +13,7 @@
             <column name="title" type="varchar(255)">
                 <constraints nullable="false"/>
             </column>
-            <column name="description" type="text"/>
+            <column name="description" type="varchar(255)"/>
             <column name="status" type="varchar(20)">
                 <constraints nullable="false"/>
             </column>
@@ -24,7 +24,5 @@
                 <constraints nullable="true"/>
             </column>
         </createTable>
-        <addForeignKeyConstraint baseTableName="task" baseColumnNames="assigned_user_id" referencedTableName="users" referencedColumnNames="id"/>
-        <addForeignKeyConstraint baseTableName="task" baseColumnNames="requester_id" referencedTableName="users" referencedColumnNames="id"/>
     </changeSet>
 </databaseChangeLog>
