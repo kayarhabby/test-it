@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.example.testit.service.TaskServiceUnitaireTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2026-01-23T16:14:15.165Z" hostname="DESKTOP-86VMBI9" time="2.74">
+  <properties/>
+  <testcase name="testFindAll()" classname="com.example.testit.service.TaskServiceUnitaireTest" time="2.74"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
