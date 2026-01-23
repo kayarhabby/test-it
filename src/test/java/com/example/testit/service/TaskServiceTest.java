@@ -121,4 +121,32 @@ public class TaskServiceTest {
         Assertions.assertThat(saved.getStatus()).isEqualTo(Status.FINI);
     }
 
+    @Test
+    public void itshouldupdateTask() {
+
+        // Etand donné que
+        User user = new User("rhabby");
+        Task task = new Task("faire à manger", "préparer du poulet à midi", user);
+
+        // on insere les données dans la base de données
+        this.userRepository.save(user);
+        User assignedUser = this.userRepository.findByUsername("rhabby");
+        Long requesterId = assignedUser.getId();
+        Long assignedUserId = assignedUser.getId();
+
+        taskService.createTask(task.getTitle(),task.getDescription(),requesterId, assignedUserId );
+
+        // Quand
+
+        // on récupère l'ensemble des tâches enregistrés dans la base de données
+        List<Task> taskList = taskRepository.findAll();
+
+        Task taskToBeUpdated = taskList.get(0);
+        taskToBeUpdated.setTitle("dormir");
+
+        Task saved = taskService.updateTask(taskToBeUpdated);
+
+        // On certifie que la liste retournée possède bien la task précédemment enregistré
+        Assertions.assertThat(saved.getTitle()).isEqualTo(taskToBeUpdated.getTitle());
+    }
 }
