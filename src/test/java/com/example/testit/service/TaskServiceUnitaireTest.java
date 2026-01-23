@@ -14,9 +14,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class TaskServiceUnitaireTest {
 
-    // test findAll
     @Test
-    void testFindAll() {
+    void testCreateTask() {
         TaskRepository taskRepo = Mockito.mock(TaskRepository.class);
         UserRepository userRepo = Mockito.mock(UserRepository.class);
         MailService mailService = Mockito.mock(MailService.class);
