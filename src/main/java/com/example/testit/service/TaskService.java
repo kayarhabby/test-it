@@ -79,6 +79,7 @@ public class TaskService {
         return saved;
     }
 
+    @Transactional
     public Task finishTask(Long taskId, Long userId) {
         Task task = taskRepository.findById(taskId)
                 .orElseThrow(() -> new IllegalArgumentException("Task not found"));
