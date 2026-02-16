@@ -18,6 +18,7 @@ import org.springframework.transaction.annotation.Transactional;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.user;
 
 @SpringBootTest
 @AutoConfigureMockMvc
@@ -38,11 +39,12 @@ class TaskControllerTest {
     @BeforeEach
     void setUp() {
         // Créer un utilisateur de test en DB
-        // Create a PasswordEncoder instance
         PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+//        String password = passwordEncoder.encode("user123");
         User user = new User("testuser");
         user.setPassword(passwordEncoder.encode("user123"));
         user.setRole("USER");
+//        User user = new User("testuser", password,"USER");
         userRepository.save(user);
         userId = user.getId();
         // Set current user for auth
@@ -51,7 +53,9 @@ class TaskControllerTest {
 
     @Test
     void getAllTasks_shouldReturnEmptyList_initially() throws Exception {
-        mockMvc.perform(get("/tasks"))
+        mockMvc.perform(get("/tasks")
+                        .with(user("testuser").roles("USER"))
+                )
                 .andExpect(status().isOk())
                 .andExpect(content().json("[]"));
     }
@@ -65,7 +69,7 @@ class TaskControllerTest {
             }
             """;
 
-        mockMvc.perform(post("/tasks")
+        mockMvc.perform(post("/tasks").with(user("testuser").roles("MANAGER"))
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(taskJson))
                 .andExpect(status().isOk())
@@ -75,7 +79,9 @@ class TaskControllerTest {
 
     @Test
     void getTasksByUser_shouldReturnUserTasks() throws Exception {
-        mockMvc.perform(get("/tasks/user/{userId}", userId))
+        mockMvc.perform(get("/tasks/user/{userId}", userId)
+                        .with(user("testuser").roles("USER"))
+                )
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$").isArray());
     }

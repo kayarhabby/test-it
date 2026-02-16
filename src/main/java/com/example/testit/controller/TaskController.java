@@ -4,11 +4,11 @@ import com.example.testit.adapter.user.CurrentUserService;
 import com.example.testit.model.Task;
 import com.example.testit.service.TaskService;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
+
 
 @RestController
 @RequestMapping("/tasks")
@@ -23,13 +23,11 @@ public class TaskController {
     }
 
     @GetMapping
-    @PreAuthorize("hasAnyRole('USER','ADMIN')")
     public List<Task> getAllTasks() {
         return taskService.findAll();
     }
 
     @GetMapping("/{id}")
-    @PreAuthorize("hasAnyRole('USER','ADMIN')")
     public ResponseEntity<Task> getTaskById(@PathVariable Long id) {
         Optional<Task> task = taskService.findById(id);
         return task.map(ResponseEntity::ok)
@@ -37,13 +35,11 @@ public class TaskController {
     }
 
     @GetMapping("/user/{userId}")
-    @PreAuthorize("hasAnyRole('USER','ADMIN')")
     public List<Task> getTasksByUser(@PathVariable Long userId) {
         return taskService.findByUserId(userId);
     }
 
     @PostMapping
-    @PreAuthorize("hasAnyRole('MANAGER','ADMIN')")
     public Task createTask(@RequestBody TaskRequest request) {
         Long requesterId = currentUserService.getCurrentUserId()
                 .orElseThrow(() -> new IllegalStateException("User not authenticated"));
@@ -52,7 +48,6 @@ public class TaskController {
     }
 
     @PutMapping("/{id}")
-    @PreAuthorize("hasAnyRole('USER','ADMIN')")
     public ResponseEntity<Task> updateTask(@PathVariable Long id, @RequestBody Task task) {
         task.setId(id);
         try {
@@ -64,14 +59,12 @@ public class TaskController {
     }
 
     @DeleteMapping("/{id}")
-    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<Void> deleteTask(@PathVariable Long id) {
         taskService.deleteTask(id);
         return ResponseEntity.noContent().build();
     }
 
     @PostMapping("/{id}/start")
-    @PreAuthorize("hasAnyRole('USER','ADMIN')")
     public ResponseEntity<Task> startTask(@PathVariable Long id) {
         Long userId = currentUserService.getCurrentUserId()
                 .orElseThrow(() -> new IllegalStateException("User not authenticated"));
@@ -84,7 +77,6 @@ public class TaskController {
     }
 
     @PostMapping("/{id}/finish")
-    @PreAuthorize("hasAnyRole('USER','ADMIN')")
     public ResponseEntity<Task> finishTask(@PathVariable Long id) {
         Long userId = currentUserService.getCurrentUserId()
                 .orElseThrow(() -> new IllegalStateException("User not authenticated"));

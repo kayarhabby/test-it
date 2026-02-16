@@ -69,6 +69,10 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Gradle.Build test-it.executor": "Run",
+    "Gradle.TaskControllerTest.createTask_shouldCreateTask.executor": "Run",
+    "Gradle.TaskControllerTest.executor": "Run",
+    "Gradle.TaskControllerTest.getAllTasks_shouldReturnEmptyList_initially.executor": "Run",
+    "Gradle.TaskControllerTest.getTasksByUser_shouldReturnUserTasks.executor": "Run",
     "Gradle.TaskServiceTest.itshouldFinishTask.executor": "Run",
     "Gradle.TaskServiceTest.itshouldRStartTask.executor": "Run",
     "Gradle.TaskServiceTest.itshouldReturnAllTaskInTheDatabase.executor": "Run",
@@ -104,8 +108,8 @@
       <recent name="com.example.testit.service" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.Tests in 'com.example.testit'">
-    <configuration name="TaskServiceTest.itshouldFinishTask" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+  <component name="RunManager" selected="Gradle.TaskControllerTest">
+    <configuration name="TaskControllerTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -118,7 +122,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;com.example.testit.service.TaskServiceTest.itshouldFinishTask&quot;" />
+            <option value="&quot;com.example.testit.TaskControllerTest&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -132,7 +136,7 @@
       <GradleCoverageDisabled>false</GradleCoverageDisabled>
       <method v="2" />
     </configuration>
-    <configuration name="TaskServiceTest.itshouldStartTask" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="TaskControllerTest.createTask_shouldCreateTask" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -145,7 +149,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;com.example.testit.service.TaskServiceTest.itshouldStartTask&quot;" />
+            <option value="&quot;com.example.testit.TaskControllerTest.createTask_shouldCreateTask&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -159,7 +163,7 @@
       <GradleCoverageDisabled>false</GradleCoverageDisabled>
       <method v="2" />
     </configuration>
-    <configuration name="TaskServiceTest.itshouldupdateTask" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="TaskControllerTest.getAllTasks_shouldReturnEmptyList_initially" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -172,7 +176,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;com.example.testit.service.TaskServiceTest.itshouldupdateTask&quot;" />
+            <option value="&quot;com.example.testit.TaskControllerTest.getAllTasks_shouldReturnEmptyList_initially&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -186,7 +190,7 @@
       <GradleCoverageDisabled>false</GradleCoverageDisabled>
       <method v="2" />
     </configuration>
-    <configuration name="TaskServiceUnitaireTest.testCreateTask" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="TaskControllerTest.getTasksByUser_shouldReturnUserTasks" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -199,7 +203,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;com.example.testit.service.TaskServiceUnitaireTest.testCreateTask&quot;" />
+            <option value="&quot;com.example.testit.TaskControllerTest.getTasksByUser_shouldReturnUserTasks&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -242,11 +246,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.TaskControllerTest" />
+        <item itemvalue="Gradle.TaskControllerTest.createTask_shouldCreateTask" />
+        <item itemvalue="Gradle.TaskControllerTest.getTasksByUser_shouldReturnUserTasks" />
+        <item itemvalue="Gradle.TaskControllerTest.getAllTasks_shouldReturnEmptyList_initially" />
         <item itemvalue="Gradle.Tests in 'com.example.testit'" />
-        <item itemvalue="Gradle.TaskServiceUnitaireTest.testCreateTask" />
-        <item itemvalue="Gradle.TaskServiceTest.itshouldupdateTask" />
-        <item itemvalue="Gradle.TaskServiceTest.itshouldFinishTask" />
-        <item itemvalue="Gradle.TaskServiceTest.itshouldStartTask" />
       </list>
     </recent_temporary>
   </component>
