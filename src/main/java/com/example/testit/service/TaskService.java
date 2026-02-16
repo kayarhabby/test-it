@@ -3,7 +3,7 @@ package com.example.testit.service;
 import com.example.testit.adapter.mail.MailService;
 import com.example.testit.model.Status;
 import com.example.testit.model.Task;
-import com.example.testit.model.User;
+import com.example.testit.model.AppUser;
 import com.example.testit.repository.TaskRepository;
 import com.example.testit.repository.UserRepository;
 import jakarta.transaction.Transactional;
@@ -38,9 +38,9 @@ public class TaskService {
     }
 
     public Task createTask(String title, String description, Long requesterId, Long assignedId) {
-        User requester = userRepository.findById(requesterId)
+        AppUser requester = userRepository.findById(requesterId)
                 .orElseThrow(() -> new IllegalArgumentException("Requester not found"));
-        User assigned = userRepository.findById(assignedId)
+        AppUser assigned = userRepository.findById(assignedId)
                 .orElseThrow(() -> new IllegalArgumentException("Assigned user not found"));
         Task task = new Task(title, description, assigned);
         task.setRequester(requester);

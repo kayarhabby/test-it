@@ -2,7 +2,7 @@ package com.example.testit;
 
 import com.example.testit.model.Status;
 import com.example.testit.model.Task;
-import com.example.testit.model.User;
+import com.example.testit.model.AppUser;
 import com.example.testit.repository.TaskRepository;
 import com.example.testit.repository.UserRepository;
 import org.junit.jupiter.api.BeforeEach;
@@ -25,13 +25,13 @@ class TaskRepositoryTest {
     @Autowired
     private UserRepository userRepository;
 
-    private User user1;
-    private User user2;
+    private AppUser user1;
+    private AppUser user2;
 
     @BeforeEach
     void setUp() {
-        user1 = userRepository.save(new User("user1"));
-        user2 = userRepository.save(new User("user2"));
+        user1 = userRepository.save(new AppUser("user1"));
+        user2 = userRepository.save(new AppUser("user2"));
     }
 
     @Test

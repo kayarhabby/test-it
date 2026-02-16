@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.example.testit.UserRepositoryTest" tests="9" skipped="0" failures="0" errors="0" timestamp="2026-02-16T07:24:30.004Z" hostname="DESKTOP-86VMBI9" time="0.208">
+  <properties/>
+  <testcase name="findByUsername_shouldReturnUser_whenExists()" classname="com.example.testit.UserRepositoryTest" time="0.019"/>
+  <testcase name="save_shouldPersistUserWithManager()" classname="com.example.testit.UserRepositoryTest" time="0.014"/>
+  <testcase name="existsById_shouldReturnFalse_whenNotExists()" classname="com.example.testit.UserRepositoryTest" time="0.084"/>
+  <testcase name="findById_shouldReturnUser_whenExists()" classname="com.example.testit.UserRepositoryTest" time="0.014"/>
+  <testcase name="save_shouldPersistUser()" classname="com.example.testit.UserRepositoryTest" time="0.011"/>
+  <testcase name="existsById_shouldReturnTrue_whenExists()" classname="com.example.testit.UserRepositoryTest" time="0.012"/>
+  <testcase name="save_shouldPersistUserWithoutManager()" classname="com.example.testit.UserRepositoryTest" time="0.009"/>
+  <testcase name="findByUsername_shouldReturnNull_whenNotExists()" classname="com.example.testit.UserRepositoryTest" time="0.02"/>
+  <testcase name="selfReference_shouldAllowUserAsOwnManager()" classname="com.example.testit.UserRepositoryTest" time="0.009"/>
+  <system-out><![CDATA[2026-02-16T08:24:29.969+01:00  INFO 3656 --- [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.example.testit.UserRepositoryTest]: UserRepositoryTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-02-16T08:24:30.002+01:00  INFO 3656 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.example.testit.TestItApplication for test class com.example.testit.UserRepositoryTest
+Hibernate: insert into users (manager_id,username,id) values (?,?,default)
+Hibernate: select u1_0.id,u1_0.manager_id,u1_0.username from users u1_0 where u1_0.username=?
+Hibernate: insert into users (manager_id,username,id) values (?,?,default)
+Hibernate: insert into users (manager_id,username,id) values (?,?,default)
+Hibernate: select count(*) from users u1_0 where u1_0.id=?
+Hibernate: insert into users (manager_id,username,id) values (?,?,default)
+Hibernate: insert into users (manager_id,username,id) values (?,?,default)
+Hibernate: insert into users (manager_id,username,id) values (?,?,default)
+Hibernate: select count(*) from users u1_0 where u1_0.id=?
+Hibernate: insert into users (manager_id,username,id) values (?,?,default)
+Hibernate: select u1_0.id,u1_0.manager_id,u1_0.username from users u1_0 where u1_0.username=?
+Hibernate: insert into users (manager_id,username,id) values (?,?,default)
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

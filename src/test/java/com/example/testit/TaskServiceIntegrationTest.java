@@ -2,7 +2,7 @@ package com.example.testit;
 
 import com.example.testit.model.Status;
 import com.example.testit.model.Task;
-import com.example.testit.model.User;
+import com.example.testit.model.AppUser;
 import com.example.testit.repository.TaskRepository;
 import com.example.testit.repository.UserRepository;
 import com.example.testit.service.TaskService;
@@ -27,16 +27,16 @@ class TaskServiceIntegrationTest {
     @Autowired
     private UserRepository userRepository;
 
-    private User user1;
-    private User user2;
+    private AppUser user1;
+    private AppUser user2;
     private Task task1;
     private Task task2;
 
     @BeforeEach
     void setUp() {
         userRepository.deleteAll();
-        user1 = userRepository.save(new User("user1"));
-        user2 = userRepository.save(new User("user2"));
+        user1 = userRepository.save(new AppUser("user1"));
+        user2 = userRepository.save(new AppUser("user2"));
 
         // Créer des tâches (IDs générés automatiquement)
         task1 = taskService.createTask("Task 1", "Desc 1", user1.getId(), user1.getId());
@@ -101,7 +101,7 @@ class TaskServiceIntegrationTest {
     @Test
     void finishTask_shouldSendMailToManager_whenManagerExists() {
         // Set manager pour user1
-        User manager = userRepository.save(new User("manager"));
+        AppUser manager = userRepository.save(new AppUser("manager"));
         user1.setManager(manager);
         userRepository.save(user1);
 

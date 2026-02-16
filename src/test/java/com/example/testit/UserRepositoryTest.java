@@ -1,6 +1,6 @@
 package com.example.testit;
 
-import com.example.testit.model.User;
+import com.example.testit.model.AppUser;
 import com.example.testit.repository.UserRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,8 +19,8 @@ class UserRepositoryTest {
 
     @Test
     void save_shouldPersistUser() {
-        User user = new User("testuser");
-        User saved = userRepository.save(user);
+        AppUser user = new AppUser("testuser");
+        AppUser saved = userRepository.save(user);
 
         assertThat(saved.getId()).isNotNull();
         assertThat(saved.getUsername()).isEqualTo("testuser");
@@ -28,9 +28,9 @@ class UserRepositoryTest {
 
     @Test
     void findByUsername_shouldReturnUser_whenExists() {
-        User user = userRepository.save(new User("findme"));
+        AppUser user = userRepository.save(new AppUser("findme"));
 
-        User found = userRepository.findByUsername("findme");
+        AppUser found = userRepository.findByUsername("findme");
 
         assertThat(found).isNotNull();
         assertThat(found.getUsername()).isEqualTo("findme");
@@ -38,16 +38,16 @@ class UserRepositoryTest {
 
     @Test
     void findByUsername_shouldReturnNull_whenNotExists() {
-        User found = userRepository.findByUsername("nonexistent");
+        AppUser found = userRepository.findByUsername("nonexistent");
 
         assertThat(found).isNull();
     }
 
     @Test
     void findById_shouldReturnUser_whenExists() {
-        User saved = userRepository.save(new User("findbyid"));
+        AppUser saved = userRepository.save(new AppUser("findbyid"));
 
-        Optional<User> found = userRepository.findById(saved.getId());
+        Optional<AppUser> found = userRepository.findById(saved.getId());
 
         assertThat(found).isPresent();
         assertThat(found.get().getUsername()).isEqualTo("findbyid");
@@ -55,7 +55,7 @@ class UserRepositoryTest {
 
     @Test
     void existsById_shouldReturnTrue_whenExists() {
-        User saved = userRepository.save(new User("exists"));
+        AppUser saved = userRepository.save(new AppUser("exists"));
 
         boolean exists = userRepository.existsById(saved.getId());
 
@@ -71,18 +71,18 @@ class UserRepositoryTest {
 
     @Test
     void save_shouldPersistUserWithManager() {
-        User manager = userRepository.save(new User("manager"));
+        AppUser manager = userRepository.save(new AppUser("manager"));
 
-        User subordinate = new User("sub");
+        AppUser subordinate = new AppUser("sub");
         subordinate.setManager(manager);
-        User saved = userRepository.save(subordinate);
+        AppUser saved = userRepository.save(subordinate);
 
         assertThat(saved.getId()).isNotNull();
         assertThat(saved.getManager().getUsername()).isEqualTo("manager");
     }
     @Test
     void save_shouldPersistUserWithoutManager() {
-        User manager = userRepository.save(new User("manager"));
+        AppUser manager = userRepository.save(new AppUser("manager"));
 
 
         assertThat(manager.getId()).isNotNull();
@@ -90,9 +90,9 @@ class UserRepositoryTest {
 
     @Test
     void selfReference_shouldAllowUserAsOwnManager() {
-        User user = new User("selfmanager");
+        AppUser user = new AppUser("selfmanager");
         user.setManager(user);  // Auto-référence
-        User saved = userRepository.save(user);
+        AppUser saved = userRepository.save(user);
 
         assertThat(saved.getId()).isNotNull();
         assertThat(saved.getManager().getUsername()).isEqualTo("selfmanager");

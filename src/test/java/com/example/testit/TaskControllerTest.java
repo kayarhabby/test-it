@@ -3,7 +3,7 @@ package com.example.testit;
 import com.example.testit.adapter.user.CurrentUserServiceFake;
 import com.example.testit.model.Status;
 import com.example.testit.model.Task;
-import com.example.testit.model.User;
+import com.example.testit.model.AppUser;
 import com.example.testit.repository.UserRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -36,7 +36,7 @@ class TaskControllerTest {
     @BeforeEach
     void setUp() {
         // Créer un utilisateur de test en DB
-        User user = new User("testuser");
+        AppUser user = new AppUser("testuser");
         userRepository.save(user);
         userId = user.getId();
         // Set current user for auth

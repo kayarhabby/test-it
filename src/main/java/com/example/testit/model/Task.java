@@ -18,15 +18,15 @@ public class Task {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "assigned_user_id")
-    private User assignedUser;
+    private AppUser assignedUser;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "requester_id")
-    private User requester;
+    private AppUser requester;
 
     public Task() {}
 
-    public Task(String title, String description, User assignedUser) {
+    public Task(String title, String description, AppUser assignedUser) {
         this.title = title;
         this.description = description;
         this.assignedUser = assignedUser;
@@ -45,9 +45,9 @@ public class Task {
     public Status getStatus() { return status; }
     public void setStatus(Status status) { this.status = status; }
 
-    public User getAssignedUser() { return assignedUser; }
-    public void setAssignedUser(User assignedUser) { this.assignedUser = assignedUser; }
+    public AppUser getAssignedUser() { return assignedUser; }
+    public void setAssignedUser(AppUser assignedUser) { this.assignedUser = assignedUser; }
 
-    public User getRequester() { return requester; }
-    public void setRequester(User requester) { this.requester = requester; }
+    public AppUser getRequester() { return requester; }
+    public void setRequester(AppUser requester) { this.requester = requester; }
 }

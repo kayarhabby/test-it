@@ -1,6 +1,6 @@
 package com.example.testit.adapter.user;
 
-import com.example.testit.model.User;
+import com.example.testit.model.AppUser;
 
 import java.util.Optional;
 

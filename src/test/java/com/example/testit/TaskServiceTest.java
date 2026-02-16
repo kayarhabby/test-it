@@ -3,7 +3,7 @@ package com.example.testit;
 import com.example.testit.adapter.mail.MailService;
 import com.example.testit.model.Status;
 import com.example.testit.model.Task;
-import com.example.testit.model.User;
+import com.example.testit.model.AppUser;
 import com.example.testit.repository.TaskRepository;
 import com.example.testit.repository.UserRepository;
 import com.example.testit.service.TaskService;
@@ -37,12 +37,12 @@ class TaskServiceTest {
     @InjectMocks
     private TaskService taskService;
 
-    private User user;
+    private AppUser user;
     private Task task;
 
     @BeforeEach
     void setUp() {
-        user = new User("testuser");
+        user = new AppUser("testuser");
         user.setId(1L);
         task = new Task("Test Task", "Description", user);
         task.setId(1L);
@@ -75,7 +75,7 @@ class TaskServiceTest {
 
     @Test
     void startTask_shouldThrow_whenTaskNotAssigned() {
-        task.setAssignedUser(new User("other"));
+        task.setAssignedUser(new AppUser("other"));
         task.getAssignedUser().setId(2L);
         when(taskRepository.findById(1L)).thenReturn(Optional.of(task));
 

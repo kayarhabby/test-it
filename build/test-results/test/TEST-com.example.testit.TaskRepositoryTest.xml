@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.example.testit.TaskRepositoryTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2026-02-16T07:24:28.226Z" hostname="DESKTOP-86VMBI9" time="0.235">
+  <properties/>
+  <testcase name="save_shouldPersistTask()" classname="com.example.testit.TaskRepositoryTest" time="0.104"/>
+  <testcase name="findByAssignedUserId_shouldReturnUserTasks()" classname="com.example.testit.TaskRepositoryTest" time="0.034"/>
+  <testcase name="findByUserAndStatus_shouldReturnMatchingTasks()" classname="com.example.testit.TaskRepositoryTest" time="0.049"/>
+  <testcase name="findByUserAndStatus_shouldReturnEmpty_whenNoMatch()" classname="com.example.testit.TaskRepositoryTest" time="0.014"/>
+  <testcase name="findById_shouldReturnTask_whenExists()" classname="com.example.testit.TaskRepositoryTest" time="0.013"/>
+  <testcase name="findAll_shouldReturnAllTasks()" classname="com.example.testit.TaskRepositoryTest" time="0.012"/>
+  <system-out><![CDATA[2026-02-16T08:24:27.714+01:00  INFO 3656 --- [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.example.testit.TaskRepositoryTest]: TaskRepositoryTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-02-16T08:24:27.728+01:00  INFO 3656 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.example.testit.TestItApplication for test class com.example.testit.TaskRepositoryTest
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.2.0)
+
+2026-02-16T08:24:27.766+01:00  INFO 3656 --- [    Test worker] com.example.testit.TaskRepositoryTest    : Starting TaskRepositoryTest using Java 17.0.17 with PID 3656 (started by pasci in C:\Users\pasci\IdeaProjects\test-it)
+2026-02-16T08:24:27.766+01:00  INFO 3656 --- [    Test worker] com.example.testit.TaskRepositoryTest    : No active profile set, falling back to 1 default profile: "default"
+2026-02-16T08:24:27.879+01:00  INFO 3656 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-02-16T08:24:27.896+01:00  INFO 3656 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 15 ms. Found 2 JPA repository interfaces.
+2026-02-16T08:24:27.911+01:00  INFO 3656 --- [    Test worker] beddedDataSourceBeanFactoryPostProcessor : Replacing 'dataSource' DataSource bean with embedded version
+2026-02-16T08:24:27.947+01:00  INFO 3656 --- [    Test worker] o.s.j.d.e.EmbeddedDatabaseFactory        : Starting embedded database: url='jdbc:h2:mem:37b9a398-cbc7-45f0-949b-5df523328e43;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false', username='sa'
+2026-02-16T08:24:27.956+01:00  INFO 3656 --- [    Test worker] liquibase.database                       : Set default schema name to PUBLIC
+2026-02-16T08:24:28.032+01:00  INFO 3656 --- [    Test worker] liquibase.changelog                      : Creating database history table with name: PUBLIC.DATABASECHANGELOG
+2026-02-16T08:24:28.036+01:00  INFO 3656 --- [    Test worker] liquibase.changelog                      : Reading from PUBLIC.DATABASECHANGELOG
+2026-02-16T08:24:28.051+01:00  INFO 3656 --- [    Test worker] liquibase.lockservice                    : Successfully acquired change log lock
+2026-02-16T08:24:28.051+01:00  INFO 3656 --- [    Test worker] liquibase.command                        : Using deploymentId: 1226668051
+2026-02-16T08:24:28.053+01:00  INFO 3656 --- [    Test worker] liquibase.changelog                      : Reading from PUBLIC.DATABASECHANGELOG
+Running Changeset: db/changelog/001-create-users-table.xml::001::testit
+2026-02-16T08:24:28.063+01:00  INFO 3656 --- [    Test worker] liquibase.changelog                      : Table users created
+2026-02-16T08:24:28.063+01:00  INFO 3656 --- [    Test worker] liquibase.changelog                      : ChangeSet db/changelog/001-create-users-table.xml::001::testit ran successfully in 6ms
+Running Changeset: db/changelog/002-create-task-table.xml::002::testit
+2026-02-16T08:24:28.071+01:00  INFO 3656 --- [    Test worker] liquibase.changelog                      : Table task created
+2026-02-16T08:24:28.071+01:00  INFO 3656 --- [    Test worker] liquibase.changelog                      : Sequence task_seq created
+2026-02-16T08:24:28.071+01:00  INFO 3656 --- [    Test worker] liquibase.changelog                      : ChangeSet db/changelog/002-create-task-table.xml::002::testit ran successfully in 0ms
+2026-02-16T08:24:28.078+01:00  INFO 3656 --- [    Test worker] liquibase.util                           : UPDATE SUMMARY
+2026-02-16T08:24:28.079+01:00  INFO 3656 --- [    Test worker] liquibase.util                           : Run:                          2
+2026-02-16T08:24:28.079+01:00  INFO 3656 --- [    Test worker] liquibase.util                           : Previously run:               0
+2026-02-16T08:24:28.079+01:00  INFO 3656 --- [    Test worker] liquibase.util                           : Filtered out:                 0
+2026-02-16T08:24:28.079+01:00  INFO 3656 --- [    Test worker] liquibase.util                           : -------------------------------
+2026-02-16T08:24:28.079+01:00  INFO 3656 --- [    Test worker] liquibase.util                           : Total change sets:            2
+2026-02-16T08:24:28.079+01:00  INFO 3656 --- [    Test worker] liquibase.util                           : Update summary generated
+2026-02-16T08:24:28.079+01:00  INFO 3656 --- [    Test worker] liquibase.command                        : Update command completed successfully.
+Liquibase: Update has been successful. Rows affected: 2
+2026-02-16T08:24:28.081+01:00  INFO 3656 --- [    Test worker] liquibase.lockservice                    : Successfully released change log lock
+2026-02-16T08:24:28.081+01:00  INFO 3656 --- [    Test worker] liquibase.command                        : Command execution complete
+2026-02-16T08:24:28.096+01:00  INFO 3656 --- [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-02-16T08:24:28.096+01:00  INFO 3656 --- [    Test worker] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-02-16T08:24:28.104+01:00  INFO 3656 --- [    Test worker] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-02-16T08:24:28.107+01:00  WARN 3656 --- [    Test worker] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-02-16T08:24:28.142+01:00  INFO 3656 --- [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-02-16T08:24:28.147+01:00  INFO 3656 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-02-16T08:24:28.222+01:00  INFO 3656 --- [    Test worker] com.example.testit.TaskRepositoryTest    : Started TaskRepositoryTest in 0.488 seconds (process running for 11.368)
+Hibernate: insert into users (manager_id,username,id) values (?,?,default)
+Hibernate: insert into users (manager_id,username,id) values (?,?,default)
+Hibernate: insert into task (assigned_user_id,description,requester_id,status,title,id) values (?,?,?,?,?,default)
+Hibernate: insert into users (manager_id,username,id) values (?,?,default)
+Hibernate: insert into users (manager_id,username,id) values (?,?,default)
+Hibernate: insert into task (assigned_user_id,description,requester_id,status,title,id) values (?,?,?,?,?,default)
+Hibernate: insert into task (assigned_user_id,description,requester_id,status,title,id) values (?,?,?,?,?,default)
+Hibernate: insert into task (assigned_user_id,description,requester_id,status,title,id) values (?,?,?,?,?,default)
+Hibernate: select t1_0.id,t1_0.assigned_user_id,t1_0.description,t1_0.requester_id,t1_0.status,t1_0.title from task t1_0 where t1_0.assigned_user_id=?
+Hibernate: select t1_0.id,t1_0.assigned_user_id,t1_0.description,t1_0.requester_id,t1_0.status,t1_0.title from task t1_0 where t1_0.assigned_user_id=?
+Hibernate: insert into users (manager_id,username,id) values (?,?,default)
+Hibernate: insert into users (manager_id,username,id) values (?,?,default)
+Hibernate: insert into task (assigned_user_id,description,requester_id,status,title,id) values (?,?,?,?,?,default)
+Hibernate: insert into task (assigned_user_id,description,requester_id,status,title,id) values (?,?,?,?,?,default)
+Hibernate: insert into task (assigned_user_id,description,requester_id,status,title,id) values (?,?,?,?,?,default)
+Hibernate: update task set assigned_user_id=?,description=?,requester_id=?,status=?,title=? where id=?
+Hibernate: select t1_0.id,t1_0.assigned_user_id,t1_0.description,t1_0.requester_id,t1_0.status,t1_0.title from task t1_0 where t1_0.assigned_user_id=? and t1_0.status=?
+Hibernate: insert into users (manager_id,username,id) values (?,?,default)
+Hibernate: insert into users (manager_id,username,id) values (?,?,default)
+Hibernate: insert into task (assigned_user_id,description,requester_id,status,title,id) values (?,?,?,?,?,default)
+Hibernate: select t1_0.id,t1_0.assigned_user_id,t1_0.description,t1_0.requester_id,t1_0.status,t1_0.title from task t1_0 where t1_0.assigned_user_id=? and t1_0.status=?
+Hibernate: insert into users (manager_id,username,id) values (?,?,default)
+Hibernate: insert into users (manager_id,username,id) values (?,?,default)
+Hibernate: insert into task (assigned_user_id,description,requester_id,status,title,id) values (?,?,?,?,?,default)
+Hibernate: insert into users (manager_id,username,id) values (?,?,default)
+Hibernate: insert into users (manager_id,username,id) values (?,?,default)
+Hibernate: insert into task (assigned_user_id,description,requester_id,status,title,id) values (?,?,?,?,?,default)
+Hibernate: insert into task (assigned_user_id,description,requester_id,status,title,id) values (?,?,?,?,?,default)
+Hibernate: select t1_0.id,t1_0.assigned_user_id,t1_0.description,t1_0.requester_id,t1_0.status,t1_0.title from task t1_0
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
