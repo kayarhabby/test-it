@@ -3,7 +3,7 @@ package com.example.testit;
 import com.example.testit.adapter.user.CurrentUserServiceFake;
 import com.example.testit.model.Status;
 import com.example.testit.model.Task;
-import com.example.testit.model.AppUser;
+import com.example.testit.model.User;
 import com.example.testit.repository.UserRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -11,11 +11,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.transaction.annotation.Transactional;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 @SpringBootTest
 @AutoConfigureMockMvc
@@ -36,7 +38,11 @@ class TaskControllerTest {
     @BeforeEach
     void setUp() {
         // Créer un utilisateur de test en DB
-        AppUser user = new AppUser("testuser");
+        // Create a PasswordEncoder instance
+        PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+        User user = new User("testuser");
+        user.setPassword(passwordEncoder.encode("user123"));
+        user.setRole("USER");
         userRepository.save(user);
         userId = user.getId();
         // Set current user for auth

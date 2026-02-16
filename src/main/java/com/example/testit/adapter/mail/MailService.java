@@ -1,6 +1,6 @@
 package com.example.testit.adapter.mail;
 
-import com.example.testit.model.AppUser;
+import com.example.testit.model.User;
 
 public interface MailService {
 
@@ -10,12 +10,12 @@ public interface MailService {
      * @param subject le sujet du mail
      * @param message le contenu du message
      */
-    void sendMail(AppUser user, String subject, String message);
+    void sendMail(User user, String subject, String message);
 
     /**
      * Envoie le mail de cloture du ticket (héritage).
      * @param user
      */
-    void sendMailCloture(AppUser user);
+    void sendMailCloture(User user);
 
 }

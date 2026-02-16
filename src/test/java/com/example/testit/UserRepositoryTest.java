@@ -1,11 +1,14 @@
 package com.example.testit;
 
-import com.example.testit.model.AppUser;
+import com.example.testit.model.User;
 import com.example.testit.repository.UserRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.security.crypto.password.PasswordEncoder;
+
 
 import java.util.Optional;
 
@@ -19,8 +22,11 @@ class UserRepositoryTest {
 
     @Test
     void save_shouldPersistUser() {
-        AppUser user = new AppUser("testuser");
-        AppUser saved = userRepository.save(user);
+        User user = new User("testuser");
+        PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+        user.setPassword(passwordEncoder.encode("user123"));
+        user.setRole("USER");
+        User saved = userRepository.save(user);
 
         assertThat(saved.getId()).isNotNull();
         assertThat(saved.getUsername()).isEqualTo("testuser");
@@ -28,9 +34,9 @@ class UserRepositoryTest {
 
     @Test
     void findByUsername_shouldReturnUser_whenExists() {
-        AppUser user = userRepository.save(new AppUser("findme"));
+        User user = userRepository.save(new User("findme"));
 
-        AppUser found = userRepository.findByUsername("findme");
+        User found = userRepository.findByUsername("findme");
 
         assertThat(found).isNotNull();
         assertThat(found.getUsername()).isEqualTo("findme");
@@ -38,16 +44,16 @@ class UserRepositoryTest {
 
     @Test
     void findByUsername_shouldReturnNull_whenNotExists() {
-        AppUser found = userRepository.findByUsername("nonexistent");
+        User found = userRepository.findByUsername("nonexistent");
 
         assertThat(found).isNull();
     }
 
     @Test
     void findById_shouldReturnUser_whenExists() {
-        AppUser saved = userRepository.save(new AppUser("findbyid"));
+        User saved = userRepository.save(new User("findbyid"));
 
-        Optional<AppUser> found = userRepository.findById(saved.getId());
+        Optional<User> found = userRepository.findById(saved.getId());
 
         assertThat(found).isPresent();
         assertThat(found.get().getUsername()).isEqualTo("findbyid");
@@ -55,7 +61,7 @@ class UserRepositoryTest {
 
     @Test
     void existsById_shouldReturnTrue_whenExists() {
-        AppUser saved = userRepository.save(new AppUser("exists"));
+        User saved = userRepository.save(new User("exists"));
 
         boolean exists = userRepository.existsById(saved.getId());
 
@@ -71,18 +77,18 @@ class UserRepositoryTest {
 
     @Test
     void save_shouldPersistUserWithManager() {
-        AppUser manager = userRepository.save(new AppUser("manager"));
+        User manager = userRepository.save(new User("manager"));
 
-        AppUser subordinate = new AppUser("sub");
+        User subordinate = new User("sub");
         subordinate.setManager(manager);
-        AppUser saved = userRepository.save(subordinate);
+        User saved = userRepository.save(subordinate);
 
         assertThat(saved.getId()).isNotNull();
         assertThat(saved.getManager().getUsername()).isEqualTo("manager");
     }
     @Test
     void save_shouldPersistUserWithoutManager() {
-        AppUser manager = userRepository.save(new AppUser("manager"));
+        User manager = userRepository.save(new User("manager"));
 
 
         assertThat(manager.getId()).isNotNull();
@@ -90,9 +96,9 @@ class UserRepositoryTest {
 
     @Test
     void selfReference_shouldAllowUserAsOwnManager() {
-        AppUser user = new AppUser("selfmanager");
+        User user = new User("selfmanager");
         user.setManager(user);  // Auto-référence
-        AppUser saved = userRepository.save(user);
+        User saved = userRepository.save(user);
 
         assertThat(saved.getId()).isNotNull();
         assertThat(saved.getManager().getUsername()).isEqualTo("selfmanager");

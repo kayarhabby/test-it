@@ -1,11 +1,10 @@
 package com.example.testit.service;
 
-import com.example.testit.model.AppUser;
+import com.example.testit.model.User;
 import com.example.testit.repository.UserRepository;
-import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.*;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -19,9 +18,9 @@ public class CustomUserDetailsService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) {
-        AppUser user = userRepository.findByUsername(username);
+        User user = userRepository.findByUsername(username);
 
-        return User.builder()
+        return org.springframework.security.core.userdetails.User.builder()
                 .username(user.getUsername())
                 .password(user.getPassword())
                 .roles(user.getRole()) // USER

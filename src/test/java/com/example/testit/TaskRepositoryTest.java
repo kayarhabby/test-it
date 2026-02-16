@@ -2,14 +2,17 @@ package com.example.testit;
 
 import com.example.testit.model.Status;
 import com.example.testit.model.Task;
-import com.example.testit.model.AppUser;
+import com.example.testit.model.User;
 import com.example.testit.repository.TaskRepository;
 import com.example.testit.repository.UserRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.security.crypto.password.PasswordEncoder;
+
 
 import java.util.List;
 import java.util.Optional;
@@ -25,13 +28,18 @@ class TaskRepositoryTest {
     @Autowired
     private UserRepository userRepository;
 
-    private AppUser user1;
-    private AppUser user2;
+    private User user1;
+    private User user2;
 
     @BeforeEach
     void setUp() {
-        user1 = userRepository.save(new AppUser("user1"));
-        user2 = userRepository.save(new AppUser("user2"));
+        PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+        user1 = userRepository.save(new User("user1"));
+        user1.setPassword(passwordEncoder.encode("user123"));
+        user1.setRole("USER");
+        user2 = userRepository.save(new User("user2"));
+        user2.setPassword(passwordEncoder.encode("user123"));
+        user2.setRole("USER");
     }
 
     @Test

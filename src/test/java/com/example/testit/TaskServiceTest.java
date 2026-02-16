@@ -3,7 +3,7 @@ package com.example.testit;
 import com.example.testit.adapter.mail.MailService;
 import com.example.testit.model.Status;
 import com.example.testit.model.Task;
-import com.example.testit.model.AppUser;
+import com.example.testit.model.User;
 import com.example.testit.repository.TaskRepository;
 import com.example.testit.repository.UserRepository;
 import com.example.testit.service.TaskService;
@@ -22,6 +22,10 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
+
+
 @ExtendWith(MockitoExtension.class)
 class TaskServiceTest {
 
@@ -37,12 +41,15 @@ class TaskServiceTest {
     @InjectMocks
     private TaskService taskService;
 
-    private AppUser user;
+    private User user;
     private Task task;
 
     @BeforeEach
     void setUp() {
-        user = new AppUser("testuser");
+        user = new User("testuser");
+        PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+        user.setPassword(passwordEncoder.encode("user123"));
+        user.setRole("USER");
         user.setId(1L);
         task = new Task("Test Task", "Description", user);
         task.setId(1L);
@@ -75,7 +82,7 @@ class TaskServiceTest {
 
     @Test
     void startTask_shouldThrow_whenTaskNotAssigned() {
-        task.setAssignedUser(new AppUser("other"));
+        task.setAssignedUser(new User("other"));
         task.getAssignedUser().setId(2L);
         when(taskRepository.findById(1L)).thenReturn(Optional.of(task));
 

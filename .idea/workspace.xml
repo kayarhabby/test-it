@@ -66,35 +66,36 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Gradle.Build test-it.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.TaskServiceTest.itshouldFinishTask.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.TaskServiceTest.itshouldRStartTask.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.TaskServiceTest.itshouldReturnAllTaskInTheDatabase.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.TaskServiceTest.itshouldStartTask.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.TaskServiceTest.itshouldupdateTask.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.TaskServiceTest.test.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.TaskServiceUnitaireTest.testCreateTask.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.TaskServiceUnitaireTest.testFindAll.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.Tests in 'test-it'.executor&quot;: &quot;Run&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;Spring Boot.TestItApplication.executor&quot;: &quot;Run&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
-    &quot;create.test.in.the.same.root&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/pasci/IdeaProjects/test-it&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Gradle.Build test-it.executor": "Run",
+    "Gradle.TaskServiceTest.itshouldFinishTask.executor": "Run",
+    "Gradle.TaskServiceTest.itshouldRStartTask.executor": "Run",
+    "Gradle.TaskServiceTest.itshouldReturnAllTaskInTheDatabase.executor": "Run",
+    "Gradle.TaskServiceTest.itshouldStartTask.executor": "Run",
+    "Gradle.TaskServiceTest.itshouldupdateTask.executor": "Run",
+    "Gradle.TaskServiceTest.test.executor": "Run",
+    "Gradle.TaskServiceUnitaireTest.testCreateTask.executor": "Run",
+    "Gradle.TaskServiceUnitaireTest.testFindAll.executor": "Run",
+    "Gradle.Tests in 'com.example.testit'.executor": "Run",
+    "Gradle.Tests in 'test-it'.executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "Spring Boot.TestItApplication.executor": "Run",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "create.test.in.the.same.root": "true",
+    "git-widget-placeholder": "master",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/pasci/IdeaProjects/test-it",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
@@ -103,7 +104,7 @@
       <recent name="com.example.testit.service" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.TaskServiceUnitaireTest.testCreateTask">
+  <component name="RunManager" selected="Gradle.Tests in 'com.example.testit'">
     <configuration name="TaskServiceTest.itshouldFinishTask" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -118,33 +119,6 @@
             <option value=":test" />
             <option value="--tests" />
             <option value="&quot;com.example.testit.service.TaskServiceTest.itshouldFinishTask&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <ExternalSystemDebugDisabled>false</ExternalSystemDebugDisabled>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>true</RunAsTest>
-      <GradleProfilingDisabled>false</GradleProfilingDisabled>
-      <GradleCoverageDisabled>false</GradleCoverageDisabled>
-      <method v="2" />
-    </configuration>
-    <configuration name="TaskServiceTest.itshouldRStartTask" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-            <option value="--tests" />
-            <option value="&quot;com.example.testit.service.TaskServiceTest.itshouldRStartTask&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -239,13 +213,40 @@
       <GradleCoverageDisabled>false</GradleCoverageDisabled>
       <method v="2" />
     </configuration>
+    <configuration name="Tests in 'com.example.testit'" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;com.example.testit.*&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <ExternalSystemDebugDisabled>false</ExternalSystemDebugDisabled>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <GradleProfilingDisabled>false</GradleProfilingDisabled>
+      <GradleCoverageDisabled>false</GradleCoverageDisabled>
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.Tests in 'com.example.testit'" />
         <item itemvalue="Gradle.TaskServiceUnitaireTest.testCreateTask" />
         <item itemvalue="Gradle.TaskServiceTest.itshouldupdateTask" />
         <item itemvalue="Gradle.TaskServiceTest.itshouldFinishTask" />
         <item itemvalue="Gradle.TaskServiceTest.itshouldStartTask" />
-        <item itemvalue="Gradle.TaskServiceTest.itshouldRStartTask" />
       </list>
     </recent_temporary>
   </component>

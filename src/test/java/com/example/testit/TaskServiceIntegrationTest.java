@@ -2,7 +2,7 @@ package com.example.testit;
 
 import com.example.testit.model.Status;
 import com.example.testit.model.Task;
-import com.example.testit.model.AppUser;
+import com.example.testit.model.User;
 import com.example.testit.repository.TaskRepository;
 import com.example.testit.repository.UserRepository;
 import com.example.testit.service.TaskService;
@@ -10,10 +10,13 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.transaction.annotation.Transactional;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import org.springframework.security.crypto.password.PasswordEncoder;
+
 
 @SpringBootTest
 class TaskServiceIntegrationTest {
@@ -27,16 +30,21 @@ class TaskServiceIntegrationTest {
     @Autowired
     private UserRepository userRepository;
 
-    private AppUser user1;
-    private AppUser user2;
+    private User user1;
+    private User user2;
     private Task task1;
     private Task task2;
 
     @BeforeEach
     void setUp() {
         userRepository.deleteAll();
-        user1 = userRepository.save(new AppUser("user1"));
-        user2 = userRepository.save(new AppUser("user2"));
+        PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+        user1 = userRepository.save(new User("user1"));
+        user1.setPassword(passwordEncoder.encode("user123"));
+        user1.setRole("USER");
+        user2 = userRepository.save(new User("user2"));
+        user2.setPassword(passwordEncoder.encode("user123"));
+        user2.setRole("USER");
 
         // Créer des tâches (IDs générés automatiquement)
         task1 = taskService.createTask("Task 1", "Desc 1", user1.getId(), user1.getId());
@@ -101,7 +109,7 @@ class TaskServiceIntegrationTest {
     @Test
     void finishTask_shouldSendMailToManager_whenManagerExists() {
         // Set manager pour user1
-        AppUser manager = userRepository.save(new AppUser("manager"));
+        User manager = userRepository.save(new User("manager"));
         user1.setManager(manager);
         userRepository.save(user1);
 
